@@ -1,10 +1,10 @@
-# Trace as State (TaS) - Antigravity AI Agent Skill
+# Trace as State (TaS) - Universal AI Agent Skill
 
 [![Paper](https://img.shields.io/badge/arXiv-2609.02702-b31b1b.svg)](https://arxiv.org/abs/2609.02702)
-[![Platform](https://img.shields.io/badge/Platform-Antigravity%202.0-blue.svg)](https://github.com)
+[![Platform](https://img.shields.io/badge/Platform-All%20AI%20Agents-blue.svg)](https://github.com)
 [![License](https://img.shields.io/badge/License-CC%20BY%204.0-green.svg)](https://creativecommons.org/licenses/by/4.0/)
 
-本项目将清华大学唐杰团队与智谱 AI 的最新前沿学术成果——《**Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers**》（arXiv:2609.02702v1）——工程化实现为适用于 Google Antigravity / AI Agent 系统的实战型 **Skill**。
+本项目将清华大学唐杰团队与智谱 AI 的最新前沿学术成果——《**Trace as State: Reasoning Traces as Conditional States for Long-Context Transformers**》（arXiv:2609.02702v1）——工程化实现为**适用于所有主流 AI Agent 平台的通用实战型 Skill**（广泛兼容 Claude Code、Cursor、Windsurf、Antigravity、Roo Code、Cline、OpenHands 及各类自定义多代理推理架构）。
 
 > 🔗 **原论文官方链接**：
 > - 📄 **arXiv 摘要页**：[https://arxiv.org/abs/2609.02702](https://arxiv.org/abs/2609.02702)
@@ -65,26 +65,22 @@
 
 ## 🛠️ 安装与使用方法
 
-### 1. 安装到当前项目（Workspace 模式）
-将 `trace-as-state/` 文件夹复制到你项目的 `.agents/skills/` 目录下：
+本 Skill 严格遵循行业通用的 **Agent Skills Specification** 规范，能够开箱即用地被各类主流 Agent 框架加载使用：
+
+### 1. 项目本地挂载（Workspace 模式）
+将 `trace-as-state/` 放入你项目的技能配置目录下（适用于 Antigravity、Cursor、Cline 等）：
 ```bash
-# 在你的项目根目录下执行
 mkdir -p .agents/skills
 cp -r /path/to/trace-as-state .agents/skills/
 ```
 
-### 2. 安装为全局技能（跨项目通用）
-将 `trace-as-state/` 文件夹复制到 Antigravity 全局技能库目录：
-```bash
-# Windows
-cp -r trace-as-state "C:\Users\<你的用户名>\.gemini\config\skills\"
-
-# macOS / Linux
-cp -r trace-as-state ~/.gemini/config/skills/
-```
+### 2. 全局安装（跨项目通用）
+- **Claude Code 用户**：复制到 `~/.claude/skills/trace-as-state/`
+- **Antigravity / Gemini CLI 用户**：复制到 `~/.gemini/config/skills/trace-as-state/`
+- **通用 Agent 规范路径**：复制到 `~/.agents/skills/trace-as-state/`
 
 ### 3. 在对话中调用
-在与 Antigravity AI 对话时，只需输入：
+在与任何支持 Skills 规范的 AI Agent 对话时，只需输入：
 ```text
 /trace-as-state 请帮我深入分析这个超长业务模块的调用链路，排查潜在的状态竞态问题
 ```
