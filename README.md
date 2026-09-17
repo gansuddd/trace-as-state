@@ -65,26 +65,42 @@
 
 ## 🛠️ 安装与使用方法
 
-本 Skill 严格遵循行业通用的 **Agent Skills Specification** 规范，能够开箱即用地被各类主流 Agent 框架加载使用：
+本 Skill 严格遵循开放通用的 **Agent Skills Specification** 规范，适用于所有主流 AI Agent 平台（如 Claude Code、Cursor、Windsurf、Antigravity、Cline、Roo Code 及各类多智能体协作框架）：
 
-### 1. 项目本地挂载（Workspace 模式）
-将 `trace-as-state/` 放入你项目的技能配置目录下（适用于 Antigravity、Cursor、Cline 等）：
+### 1. 跨平台支持与安装路径
+
+| AI Agent 平台 | 推荐安装位置 | 生效作用域 |
+| :--- | :--- | :--- |
+| **Claude Code** | `~/.claude/skills/trace-as-state/` | 用户全局生效 |
+| **Cursor / Windsurf / Cline / Roo Code** | 项目根目录下 `.agents/skills/trace-as-state/` | 当前项目工作区生效 |
+| **Antigravity / Gemini CLI** | `~/.gemini/config/skills/trace-as-state/` 或当前项目 `.agents/skills/` | 全局或项目生效 |
+| **通用跨平台规范（Cross-runtime）** | `~/.agents/skills/trace-as-state/` | 所有遵循开源 Agent 规范的工具 |
+| **自定义 Multi-Agent / 提示词系统** | 直接引入 `trace-as-state/SKILL.md` 的 SOP 作为 System Prompt | 自动化工作流与流水线 |
+
+### 2. 安装命令示例
+
 ```bash
+# 方式 A：当前项目本地安装（推荐）
 mkdir -p .agents/skills
 cp -r /path/to/trace-as-state .agents/skills/
+
+# 方式 B：Claude Code 全局安装
+mkdir -p ~/.claude/skills
+cp -r /path/to/trace-as-state ~/.claude/skills/
+
+# 方式 C：开源 Agent 通用全局安装
+mkdir -p ~/.agents/skills
+cp -r /path/to/trace-as-state ~/.agents/skills/
 ```
 
-### 2. 全局安装（跨项目通用）
-- **Claude Code 用户**：复制到 `~/.claude/skills/trace-as-state/`
-- **Antigravity / Gemini CLI 用户**：复制到 `~/.gemini/config/skills/trace-as-state/`
-- **通用 Agent 规范路径**：复制到 `~/.agents/skills/trace-as-state/`
-
 ### 3. 在对话中调用
-在与任何支持 Skills 规范的 AI Agent 对话时，只需输入：
+在与任何支持 Skills 扩展的 AI Agent 对话时，只需输入：
 ```text
 /trace-as-state 请帮我深入分析这个超长业务模块的调用链路，排查潜在的状态竞态问题
 ```
-或直接要求 AI：“*请使用 Trace as State 技能深入重读这篇论文/文档*”。
+或者使用自然语言直接触发：
+> *“请使用 Trace as State 技能的两阶段机制，深入复核这篇论文/排查这个模块。”*
+
 
 ---
 
