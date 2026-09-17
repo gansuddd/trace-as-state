@@ -1,0 +1,16 @@
+# OS files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Temporary files
+*.tmp
+*.log
+
+# Exclude local converted paper markdown & local agent config
+2609.02702_paper.md
+.agents/
+
+
